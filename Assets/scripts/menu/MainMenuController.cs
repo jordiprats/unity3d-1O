@@ -13,7 +13,7 @@ public class MainMenuController : MonoBehaviour {
 
     public void PlayAction()
     {
-        Debug.Log("play!")
+        Debug.Log("play!");
         SceneManager.LoadScene("1setembre");
     }
 }
