@@ -1,4 +1,4 @@
-# unity3d-1O
+# unity3d-1O - qui sembra rebel·lia, recull la llibertat
 
 gitignore: https://gist.github.com/FullStackForger/20bbf62861394b1a3de0
 
