@@ -1,6 +1,6 @@
-# unity3d-1O - qui sembra rebel·lia, recull la llibertat
+# unity3d-1O
 
-gitignore: https://gist.github.com/FullStackForger/20bbf62861394b1a3de0
+qui sembra rebel·lia, recull la llibertat
 
 ## missions
 
@@ -11,8 +11,7 @@ gitignore: https://gist.github.com/FullStackForger/20bbf62861394b1a3de0
 * 30 de setembre: deixar les urnes aprop del colegi
 * 1 d'octubre: defensar el colegi
 
-## camera 3a persona
+## referencies RTS
 
-* https://www.youtube.com/watch?v=sNmeK3qK7oA
-* https://www.youtube.com/watch?v=qw9xIDgttU8&feature=youtu.be
-*
+* [A Terrible Kingdom (Scripting for Timeline)](https://github.com/UnityTechnologies/ATerribleKingdom)
+* [demo RTS](https://github.com/malinovsky239/unity-strategy) video a [youtube](https://www.youtube.com/watch?v=JppXaf6VvQA&feature=youtu.be)
