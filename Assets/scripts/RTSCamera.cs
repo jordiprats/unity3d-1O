@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RTSCamera : MonoBehaviour {
 
+	public float rotationSpeed = 20f;
 	public float panSpeed = 20f;
 	public float minPanSpeed = 5f;
 	public float panBorderThickness = 50f;
@@ -15,17 +16,18 @@ public class RTSCamera : MonoBehaviour {
 	void Update () {
 		Vector3 new_pos = transform.position;
 
+		RaycastHit hit;
+		Ray ray = this.transform.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+		Vector3 desiredPosition;
+
+		if (Physics.Raycast(ray , out hit))
+			desiredPosition = hit.point;
+		else
+			desiredPosition = transform.position;
+
 		float scroll = Input.GetAxis("Mouse ScrollWheel");
 		if(scroll!=0)
 		{
-			RaycastHit hit;
-			Ray ray = this.transform.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-			Vector3 desiredPosition;
-
-			if (Physics.Raycast(ray , out hit))
-				desiredPosition = hit.point;
-			else
-				desiredPosition = transform.position;
 			float distance = Vector3.Distance(desiredPosition , transform.position);
 			Vector3 direction = Vector3.Normalize( desiredPosition - transform.position) * (distance * scroll * scrollSpeed);
 
@@ -41,22 +43,22 @@ public class RTSCamera : MonoBehaviour {
 
 		//Debug.Log("mouse x: "+Input.mousePosition.x+" vs "+(Screen.height - panBorderThickness));
 		//Debug.Log("mouse y: "+Input.mousePosition.y+" vs "+(Screen.width - panBorderThickness));
-		if(Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
+		if(Input.GetKey(KeyCode.W) || Input.mousePosition.y >= Screen.height - panBorderThickness)
 		{
 			new_pos.z += (minPanSpeed + panSpeed * zoom_factor) * Time.deltaTime;
 		}
 
-		if(Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
+		if(Input.GetKey(KeyCode.S) || Input.mousePosition.y <= panBorderThickness)
 		{
 			new_pos.z -= (minPanSpeed + panSpeed * zoom_factor) *  Time.deltaTime;
 		}
 
-		if(Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
+		if(Input.GetKey(KeyCode.D) || Input.mousePosition.x >= Screen.width - panBorderThickness)
 		{
 			new_pos.x += (minPanSpeed + panSpeed * zoom_factor) * Time.deltaTime;
 		}
 
-		if(Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
+		if(Input.GetKey(KeyCode.A) || Input.mousePosition.x <= panBorderThickness)
 		{
 			new_pos.x -= (minPanSpeed + panSpeed * zoom_factor) * Time.deltaTime;
 		}
@@ -66,5 +68,16 @@ public class RTSCamera : MonoBehaviour {
 		new_pos.z = Mathf.Clamp(new_pos.z, -panLimit.y, panLimit.y);
 
 		transform.position = new_pos;
+
+
+		if(Input.GetKey(KeyCode.Q))
+		{
+			transform.RotateAround (desiredPosition, new Vector3 (0, 1, 0), rotationSpeed*Time.deltaTime);
+		}
+
+		if(Input.GetKey(KeyCode.E))
+		{
+			transform.RotateAround (desiredPosition, new Vector3 (0, -1, 0), rotationSpeed*Time.deltaTime);
+		}
 	}
 }
