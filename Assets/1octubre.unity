@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d71046331c349c5b35b1a23e04df3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  daynightFactor: 0.1
 --- !u!1 &205984738
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e50370d81f6d4fd79f3683001ddbace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 20
+  rotationSpeed: 30
   panSpeed: 20
   minPanSpeed: 5
   panBorderThickness: 10
@@ -698,6 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d71046331c349c5b35b1a23e04df3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  daynightFactor: 0.1
 --- !u!1 &1376184370
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RTSCamera : MonoBehaviour {
 
-	public float rotationSpeed = 20f;
+	public float rotationSpeed = 30f;
 	public float panSpeed = 20f;
 	public float minPanSpeed = 5f;
 	public float panBorderThickness = 50f;
@@ -46,6 +46,7 @@ public class RTSCamera : MonoBehaviour {
 		if(Input.GetKey(KeyCode.W) || Input.mousePosition.y >= Screen.height - panBorderThickness)
 		{
 			new_pos.z += (minPanSpeed + panSpeed * zoom_factor) * Time.deltaTime;
+			// TODO: transform.Translate(Vector3.forward * (minPanSpeed + panSpeed * zoom_factor) * Time.deltaTime);		
 		}
 
 		if(Input.GetKey(KeyCode.S) || Input.mousePosition.y <= panBorderThickness)
