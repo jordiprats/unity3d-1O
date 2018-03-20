@@ -10,7 +10,7 @@ public class RTSCamera : MonoBehaviour {
 	public float panBorderThickness = 50f;
 	public Vector2 panLimit;
 	public Vector2 scrollLimit;
-	public float scrollSpeed = 5f;
+	public float scrollSpeed = 2f;
 	
 	// Update is called once per frame
 	void Update () {
